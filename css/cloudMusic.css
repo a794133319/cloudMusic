@@ -1,0 +1,62 @@
+.mainContent{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border: 1px solid lightgray;
+	width: 800px;
+	height: 500px;
+	transform: translate(-50%,-50%);
+	border-radius: 10px;
+}
+
+.top{
+	height: 6%;
+	color: white;
+	background: #C20C0C;
+	border-radius: 10px;
+	padding-left: 20px;
+	padding-top: 5px;
+}
+
+.mainShow{
+	height: 88%;
+	background: lightgray;
+}
+
+.musicListDiv{
+	width: 30%;
+	height: 100%;
+	background: whitesmoke;
+	border-radius: 5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.musicListDiv::-webkit-scrollbar{
+	display: none;
+}
+
+.music{
+	list-style: none;
+	height: 20px;
+	margin-top: 2px;
+	font-size: small;
+	padding-top: 4px;
+	padding-left: 10px;
+}
+
+.color{
+	background: white;
+}
+
+.musicPlay{
+	height: 6%;
+	background: white;
+	border-radius: 10px;
+}
+
+
+.audioStyle{
+	width: 100%;
+	height: 100%;
+}
