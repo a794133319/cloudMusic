@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>网抑云音乐-Nevesettle</title>
+		<link rel="stylesheet" type="text/css" href="css/cloudMusic.css">
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 官网提供的 axios 在线地址 -->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+	<body background="img/bg.jpg">
+		
+		<div class="content"> 
+			
+			<div class="mainContent" id="app">
+				
+				<!-- 头部的区域 -->
+				<div class="top">
+					<span>网抑云音乐</span>
+					<input type="text" v-model="musicName" @keyup.enter="seachMusic" style="margin-left: 300px;" />
+				</div>
+				
+				<!-- 中间的部分 -->
+				<div class="mainShow">
+					
+					<!-- 左侧的歌单区域  -->
+					<div class="musicListDiv">
+						<div style="text-align: center;padding-top: 5px;">
+							<span style="font-size: small;">歌曲列表</span>
+						</div>
+						<hr />
+						<!-- 歌单列表 -->
+						<div style="overflow-x: ;">
+							<div v-for="(item,index) in musicList" class="music" :class="{color:index%2==0}" @click="playMusic(item.id)">
+								{{index+1}}.{{ item.name }}
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+				
+				
+				<!-- 底部播放区域 -->
+				<div class="musicPlay">
+					<audio autoplay="autoplay" :src="musicUrl" ref="audio" loop="loop" controls="" class="audioStyle"></audio>
+				</div>
+				
+				
+			</div>
+			
+		</div>
+		
+
+		<script src="js/cloudMusic.js"></script>
+
+	</body>
+</html>
