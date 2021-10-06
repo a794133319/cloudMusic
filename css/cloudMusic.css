@@ -1,3 +1,4 @@
+/* 主div容器 */
 .mainContent{
 	position: absolute;
 	top: 50%;
@@ -7,8 +8,9 @@
 	height: 500px;
 	transform: translate(-50%,-50%);
 	border-radius: 10px;
+	background: ghostwhite;
 }
-
+/* 顶部区域 */
 .top{
 	height: 6%;
 	color: white;
@@ -17,25 +19,26 @@
 	padding-left: 20px;
 	padding-top: 5px;
 }
-
+/* 中间主要显示的区域 */
 .mainShow{
 	height: 88%;
 	background: lightgray;
 }
-
+/* 中间左侧的歌曲列表 */
 .musicListDiv{
-	width: 30%;
+	width: 24%;
 	height: 100%;
 	background: whitesmoke;
 	border-radius: 5px;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	float: left;
 }
-
+/* 歌曲列表无滚动条滚动 */
 .musicListDiv::-webkit-scrollbar{
 	display: none;
 }
-
+/* 歌曲的每一条div */
 .music{
 	list-style: none;
 	height: 20px;
@@ -44,19 +47,89 @@
 	padding-top: 4px;
 	padding-left: 10px;
 }
-
+/* 高亮 */
+.music:hover{
+	background: lightgray;
+}
+/* 隔行换色 */
 .color{
 	background: white;
 }
-
+/* 底部播放区域 */
 .musicPlay{
 	height: 6%;
 	background: white;
 	border-radius: 10px;
 }
-
-
+/* 播放器 */
 .audioStyle{
 	width: 100%;
 	height: 100%;
+}
+
+/* 中间的短线 */
+.line{
+	float: left;
+	height: 100%;
+}
+
+/* 中间的歌曲封面 */
+.musicPicDiv{
+	height: 100%;
+	width: 50%;
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	background: white;
+	position:relative
+}
+/* 封面图片 */
+.musicPic{
+	position: absolute;
+	z-index: 10;
+	border-radius: 50%;
+}
+
+/* 评论区域 */
+.commentsDiv{
+	width: 25%;
+	height: 100%;
+	float: left;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+}
+
+/* 评论列表无滚动条滚动 */
+.commentsDiv::-webkit-scrollbar{
+	display: none;
+}
+
+/* 评论 */
+.comments{
+	font-size: small;
+	background: white;
+	border-radius: 10px;
+	height: auto;
+	margin-top: 5px;
+}
+
+
+/* 搜索框 */
+.searchInput{
+	border: 2px solid whitesmoke;
+	border-radius: 5px;
+}
+.searchBtn{
+	background: #C20C0C;
+	border: 1px solid whitesmoke;
+	border-radius: 5px;
+	top: 0;
+	right: 0;
+}
+.searchBtn::before{
+	content: "搜索";
+	color: white;
 }
