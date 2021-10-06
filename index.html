@@ -17,7 +17,9 @@
 				<!-- 头部的区域 -->
 				<div class="top">
 					<span>网抑云音乐</span>
-					<input type="text" v-model="musicName" @keyup.enter="seachMusic" style="margin-left: 300px;" />
+					<input type="text" v-model="musicName" placeholder="输入歌曲名称" @keyup.enter="seachMusic" style="margin-left: 300px;" class="searchInput" />
+					<button type="button" class="searchBtn"></button>
+					<span style="font-size: smaller;float: right;margin-right: 20px;">懂你的音乐</span>
 				</div>
 				
 				<!-- 中间的部分 -->
@@ -30,13 +32,45 @@
 						</div>
 						<hr />
 						<!-- 歌单列表 -->
-						<div style="overflow-x: ;">
-							<div v-for="(item,index) in musicList" class="music" :class="{color:index%2==0}" @click="playMusic(item.id)">
-								{{index+1}}.{{ item.name }}
+						<div>
+							<div v-for="(item,index) in musicList" class="music" :class="{color:index%2==0}" :title="item.artists[0].name"  @click="playMusic(item.id)">
+								{{index+1}}. {{ item.name }}
+								<div style="float: right; margin-top: 1px;margin-right: 15px;">
+									<img src="img/mv.png" v-show="item.mvid != 0" width="15px" height="15px" style="margin-right: 5px;" />
+									<img src="img/play.png" width="15px" height="15px"  @click="playMusic(item.id)" />
+								</div>
 							</div>
 						</div>
 					</div>
 					
+					<!-- 中间隔断 -->
+					<div class="line">
+						<img src="./img/line.png" width="1%" height="100%" />
+					</div>
+					
+					<!-- 中间播放区域 -->
+					<div class="musicPicDiv" align="center">
+						<img src="img/disc.png" width="100px" height="100px" class="disc"/>
+						<img :src="musicPicUrl" width="60px" height="60px"  class="musicPic"/>
+					</div>
+					
+					<!-- 中间隔断 -->
+					<div class="line">
+						<img src="./img/line.png" width="1%" height="100%" />
+					</div>
+					
+					<!-- 右侧评论 -->
+					<div class="commentsDiv">
+						<!-- 评论列表 -->
+						<div v-for="comment in commentsList"  class="comments">
+							<div>
+								<img :src="comment.user.avatarUrl" width="20px" height="20px"  style="border-radius: 20px;margin-top: 5px;" />
+								<span>{{comment.user.nickname}}</span>
+								<hr />
+								{{comment.content}}
+							</div>
+						</div>
+					</div>
 					
 				</div>
 				
@@ -45,6 +79,8 @@
 				<div class="musicPlay">
 					<audio autoplay="autoplay" :src="musicUrl" ref="audio" loop="loop" controls="" class="audioStyle"></audio>
 				</div>
+				
+
 				
 				
 			</div>
